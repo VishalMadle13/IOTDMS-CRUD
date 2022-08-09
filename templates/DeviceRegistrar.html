@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Device - Registrar</title>
+</head>
+<body>
+    {{msg}}
+    <h3>Time : {{now}}</h3>
+    <div>
+        <form action="/show">
+        <input type="submit" value="Show Devices">
+    </form>
+    </div>
+    
+
+    <div>
+        <form action="/send/" method="POST">
+            {% csrf_token %}
+            <h3>MAC Address  <input required autofocus type="text" name="Id" id="Id"></h3>
+            <h3>Device Type  <input required type="text" name="DeviceType" id="DeviceType"></h3>
+            <h3>Device version  <input required type="text" name="DeviceVersion" id="DeviceVersion"></h3>
+            <h3>Location  <input required type="text" name="DeviceLocation" id="DeviceLocation"></h3>
+            <h3>Primary Group  <input type="text" name="PrimaryGroup" id="PrimaryGroup"></h3>
+            <h3>Secondary Group  <input type="text" name="SecondaryGroup" id="SecondaryGroup"></h3>
+            <!-- <h3>Your Name  <input required type="text" name="CreatedBy" id="EmpId"></h3>  now we are commenting this because name of employee automaticall saved from his login data--> 
+
+
+            <input type="submit"value="Register Device">
+
+        </form>
+    </div>
+</body>
+</html>

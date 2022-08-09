@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>show data</title>
+</head>
+<body>
+    <h2>All IoT Devices</h2>
+    <div>
+        <form action="/">
+            <input type="Submit" value="<< Back" >
+        </form>
+    </div>
+    <div >
+        <table>
+            <thead >
+                <th>ID</th>
+                <th>Device Type</th>
+                <th>Device Version</th>
+                <th>Location</th>
+                <th>Primary Group</th>
+                <th>Secondary Group</th>
+                
+                <!-- <th>Created By</th>
+                <!-- <th>Created Time</th> -->
+                 <!-- we add it in more details if user click on  more details then some additional info will be shown --> 
+                <th>Last response</th>
+                <th>Status </th>
+                {% for d in data %}
+                <tr>
+                    <td>{{d.Id}}</td>
+                    <td>{{d.DeviceType}}</td>
+                    <td>{{d.DeviceVersion}}</td>
+                    <td>{{d.DeviceLocation}}</td>
+                    <td>{{d.PrimaryGroup}}</td>
+                    <td>{{d.SecondaryGroup}}</td>
+                    <td>work-in-progress </td>
+                    <td>...</td>
+                    <td><a href="/edit?Id={{d.Id}}">Edit</a></td>
+                    <td><a href="/delete?Id={{d.Id}}">Delete</a></td>
+                </tr>
+                {% endfor %}
+                
+            </thead>
+        </table>
+    </div>
+    
+</body>
+</html>
