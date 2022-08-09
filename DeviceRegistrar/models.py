@@ -11,6 +11,8 @@ class Entry(models.Model):
     SecondaryGroup = models.CharField(max_length=50)  # we want this field as nullable can be null  , NotRequired=True
     LastContact = models.TimeField(auto_now=False,auto_now_add=False, null=True)
     Status = models.CharField(max_length=4 ,null=True)
+    RegistrationTime = models.CharField(max_length=50)
+
     
     def __str__(self):
       return self.DeviceType

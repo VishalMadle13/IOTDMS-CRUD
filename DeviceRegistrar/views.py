@@ -1,11 +1,12 @@
 from dataclasses import dataclass
+from datetime import datetime
 from time import timezone
 from urllib.request import Request
 from django.http import HttpResponse,HttpResponseRedirect
 from django.shortcuts import render
 from DeviceRegistrar.models import Entry
 from django.utils import timezone
-
+import datetime
 # Create your views here.
 def DeviceRegistar(request):
     return render(request,"DeviceRegistrar.html")
@@ -33,12 +34,13 @@ def send(request):
         DeviceLocation = request.POST['DeviceLocation']
         PrimaryGroup = request.POST['PrimaryGroup']
         SecondaryGroup = request.POST['SecondaryGroup']
-
+        now = datetime.datetime.now()
+        
         #writing the data in database i.e. model whose name is Entry 
-        Entry(Id =Id,DeviceType=DeviceType,DeviceLocation=DeviceLocation,PrimaryGroup=PrimaryGroup,SecondaryGroup=SecondaryGroup,DeviceVersion=DeviceVersion).save()
+        Entry(Id =Id,DeviceType=DeviceType,DeviceLocation=DeviceLocation,PrimaryGroup=PrimaryGroup,SecondaryGroup=SecondaryGroup,DeviceVersion=DeviceVersion,RegistrationTime = now).save()
 
         msg = "Device registerd Successfully"
-        now = timezone.now()
+        
         print("time : ",now)
         return render(request,"DeviceRegistrar.html",{'msg':msg,'now':now})
         

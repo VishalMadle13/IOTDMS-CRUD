@@ -28,6 +28,8 @@
                  <!-- we add it in more details if user click on  more details then some additional info will be shown --> 
                 <th>Last response</th>
                 <th>Status </th>
+                <th>Registration time</th>
+
                 {% for d in data %}
                 <tr>
                     <td>{{d.Id}}</td>
@@ -38,6 +40,8 @@
                     <td>{{d.SecondaryGroup}}</td>
                     <td>work-in-progress </td>
                     <td>...</td>
+                    <td>{{d.RegistrationTime}}</td>
+
                     <td><a href="/edit?Id={{d.Id}}">Edit</a></td>
                     <td><a href="/delete?Id={{d.Id}}">Delete</a></td>
                 </tr>
