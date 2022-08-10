@@ -79,3 +79,21 @@ def RecordEdited(request):
         return HttpResponseRedirect("show")
     else:
         return HttpResponse("<h1>404 - Not Found</h1>")
+
+def more(request):
+    Id = request.GET['Id']  # getting the id of device that have to show more details
+    for data in Entry.objects.filter(Id=Id):
+        Id  = data.Id
+        DeviceType = data.DeviceType
+        DeviceVersion = data.DeviceVersion
+        DeviceLocation = data.DeviceLocation
+        PrimaryGroup = data.PrimaryGroup
+        SecondaryGroup = data.SecondaryGroup
+        RegistrationTime = data.RegistrationTime
+        Status = data.Status
+        LastContact = data.LastContact
+
+    
+    return render(request,"MoreDetails.html",{'Id':Id,'DeviceType':DeviceType,'DeviceVersion':DeviceVersion,'DeviceLocation':DeviceLocation,'PrimaryGroup':PrimaryGroup,'SecondaryGroup':SecondaryGroup,'RegistrationTime':RegistrationTime,'LastContact':LastContact,'Status':Status})
+
+
