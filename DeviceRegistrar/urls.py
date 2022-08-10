@@ -8,6 +8,7 @@ urlpatterns = [
     path('delete',views.delete),
     path('edit',views.edit),
     path('RecordEdited',views.RecordEdited),
+    path('more',views.more)
 
     
 ]
